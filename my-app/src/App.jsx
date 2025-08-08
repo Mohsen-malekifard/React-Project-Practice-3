@@ -1,6 +1,8 @@
 // src/App.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
 import Cart from "./components/Cart";
 
 function App() {
@@ -23,10 +25,20 @@ function App() {
   };
 
   return (
-    <div>
-      <Home onAddToCart={handleAddToCart} />
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home onAddToCart={handleAddToCart} />}
+        />
+        <Route
+          path="/product/:id"
+          element={<ProductDetails onAddToCart={handleAddToCart} />}
+        />
+      </Routes>
+
       <Cart cart={cart} onRemoveFromCart={handleRemoveFromCart} />
-    </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,11 +1,14 @@
 // src/components/ProductCard.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, onAddToCart }) => {
   return (
     <div style={styles.card}>
-      <img src={product.image} alt={product.name} style={styles.image} />
-      <h3>{product.name}</h3>
+      <Link to={`/product/${product.id}`}>
+        <img src={product.image} alt={product.name} style={styles.image} />
+        <h3>{product.name}</h3>
+      </Link>
       <p>{product.price.toLocaleString()} تومان</p>
       <button onClick={() => onAddToCart(product)}>افزودن به سبد خرید</button>
     </div>
