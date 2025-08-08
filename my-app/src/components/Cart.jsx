@@ -1,4 +1,3 @@
-// src/components/Cart.jsx
 import React from "react";
 
 const Cart = ({ cart, onRemoveFromCart }) => {
@@ -16,7 +15,9 @@ const Cart = ({ cart, onRemoveFromCart }) => {
               <li key={index} style={styles.item}>
                 <span>{item.name}</span>
                 <span>{item.price.toLocaleString()} تومان</span>
-                <button onClick={() => onRemoveFromCart(index)}>❌</button>
+                <button onClick={() => onRemoveFromCart(index)} style={styles.removeBtn}>
+                  ❌
+                </button>
               </li>
             ))}
           </ul>
@@ -29,10 +30,12 @@ const Cart = ({ cart, onRemoveFromCart }) => {
 
 const styles = {
   container: {
-    borderTop: "2px solid #ddd",
-    marginTop: "2rem",
-    paddingTop: "1rem",
-    maxWidth: "500px",
+    backgroundColor: "#fff",
+    marginTop: "3rem",
+    padding: "1.5rem",
+    borderRadius: "12px",
+    boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+    maxWidth: "600px",
     margin: "2rem auto",
   },
   list: {
@@ -42,13 +45,23 @@ const styles = {
   item: {
     display: "flex",
     justifyContent: "space-between",
-    marginBottom: "0.5rem",
-    borderBottom: "1px solid #ccc",
-    paddingBottom: "0.5rem",
+    alignItems: "center",
+    marginBottom: "1rem",
+    padding: "0.5rem 0",
+    borderBottom: "1px solid #eee",
   },
   total: {
-    marginTop: "1rem",
     fontWeight: "bold",
+    fontSize: "1.1rem",
+    textAlign: "center",
+    marginTop: "1rem",
+    color: "#222",
+  },
+  removeBtn: {
+    background: "none",
+    border: "none",
+    fontSize: "1.2rem",
+    cursor: "pointer",
   },
 };
 

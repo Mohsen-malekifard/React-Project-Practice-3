@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React from "react";
 import { products } from "../data/products";
 import ProductCard from "../components/ProductCard";
@@ -6,7 +5,7 @@ import ProductCard from "../components/ProductCard";
 const Home = ({ onAddToCart }) => {
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>محصولات</h1>
+      <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>🛒 فروشگاه ما</h1>
       <div style={styles.container}>
         {products.map((product) => (
           <ProductCard
@@ -25,6 +24,7 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
+    gap: "1rem",
   },
 };
 
